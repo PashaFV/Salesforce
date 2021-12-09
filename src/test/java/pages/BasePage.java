@@ -18,6 +18,8 @@ public abstract class BasePage {
 
     public abstract boolean isPageOpen();
 
+    public abstract boolean isErrorAppeared();
+
     protected boolean isExist(By locator){
         try {
             return driver.findElement(locator).isDisplayed();
