@@ -8,32 +8,38 @@ import static org.testng.Assert.assertTrue;
 import static pages.BasePage.BASE_URL;
 import static pages.LoginPage.*;
 
-public class LoginTest extends BaseTest{
+public class LoginTest extends BaseTest {
 
+
+//    @Test
+//    public void login(){
+//        loginPage.open();
+//        loginPage.isPageOpen();
+//        loginPage.login("pashafv4-t4vs@force.com","Qwertsha");
+//        loginPage.isErrorAppeared();
+//        assertTrue(loginPage.isErrorAppeared(),"Ошибка не появилась");
+//
+//    }
 
     @Test
-    public void login(){
-        loginPage.open();
-        loginPage.isPageOpen();
-        loginPage.login("pashafv4-t4vs@force.com","3711344Pasha");
+    public void loginWithValidData() {
+        boolean isHomePageOpened = loginPage
+                .open()
+                .login("pashafv4-t4vs@force.com", "QwertyTMS4Pasha")
+                .isPageOpen();
 
-
-        assertTrue(homePage.isPageOpen(),"Страница не открылась");
-
+        assertTrue(isHomePageOpened, "Домашняя страница не открылась");
 
     }
 
     @Test
-    public void login2(){
-       boolean isHomePageOpened = loginPage
+    public void loginWithInvalidData() {
+        boolean isErrorAppeared = loginPage
                 .open()
-                .login("pashafv4-t4vs@force.com","3711344Pasha")
-                .isPageOpen();
+                .login("asdfg1234", "TestDataPasha")
+                .isErrorAppeared();
 
-
-
-        assertTrue(isHomePageOpened,"Страница не открылась");
-
+        assertTrue(isErrorAppeared, "Ошибка не появилась");
 
     }
 
