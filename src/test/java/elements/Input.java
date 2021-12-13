@@ -7,7 +7,6 @@ public class Input {
 
     String inputLocator = "//div[contains(@class,'modal-body')]//span[text()='%s']/ancestor::div[contains(@class,'uiInput')]//input";
 
-
     WebDriver driver;
     String label;
 
@@ -16,7 +15,7 @@ public class Input {
         this.label = label;
     }
 
-    public void write(String text){
+    public void write(String text) {
         System.out.printf("Writing text  '%s' into input with label '%s'\n", text, this.label);
         driver.findElement(By.xpath(String.format(inputLocator, this.label))).sendKeys(text);
 

@@ -16,18 +16,18 @@ public abstract class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver,20);
+        wait = new WebDriverWait(driver, 20);
     }
 
     public abstract boolean isPageOpen();
 
     public abstract boolean isErrorAppeared();
 
-    protected boolean isExist(By locator){
+    protected boolean isExist(By locator) {
         try {
             return driver.findElement(locator).isDisplayed();
-        }catch (NoSuchElementException ex){
-            System.out.println(">>>!!! " + ex.getMessage() );
+        } catch (NoSuchElementException ex) {
+            System.out.println(">>>!!! " + ex.getMessage());
             return false;
         }
     }

@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
 
     public static final By USERNAME_INPUT = By.id("username");
     public static final By PASSWORD_INPUT = By.id("password");
@@ -20,12 +20,12 @@ public class LoginPage extends BasePage{
         return isExist(LOGIN_BUTTON);
     }
 
-    public LoginPage open(){
+    public LoginPage open() {
         driver.get(BASE_URL);
         return this;
     }
 
-    public HomePage login(String userName, String password){
+    public HomePage login(String userName, String password) {
         driver.findElement(USERNAME_INPUT).sendKeys(userName);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
@@ -36,7 +36,7 @@ public class LoginPage extends BasePage{
 
     @Override
     public boolean isErrorAppeared() {
-      return driver.findElement(ERROR_TEXT).isDisplayed();
+        return driver.findElement(ERROR_TEXT).isDisplayed();
 
     }
 

@@ -8,6 +8,7 @@ public class Dropdown {
     String dropdownLocator = "//div[contains(@class,'modal-body')]//span[text()='%s']/ancestor::div[contains(@class,'uiInput')]/div[@class='uiMenu']";
     String optionLocator = "//div[contains(@class,'visible')]//a[text()='%s']";
 
+
     WebDriver driver;
     String label;
 
