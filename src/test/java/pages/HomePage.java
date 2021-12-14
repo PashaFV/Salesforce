@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
     public static final By MENU_HOME_LINK = By.xpath("//span[@class=\"slds-truncate\"][text()='Home']\n");
 
@@ -11,7 +11,7 @@ public class HomePage extends BasePage{
         super(driver);
     }
 
-    public HomePage open(){
+    public HomePage open() {
         driver.get(BASE_URL + "/lightning/page/home");
         return this;
     }

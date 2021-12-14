@@ -10,17 +10,6 @@ import static pages.LoginPage.*;
 
 public class LoginTest extends BaseTest {
 
-
-//    @Test
-//    public void login(){
-//        loginPage.open();
-//        loginPage.isPageOpen();
-//        loginPage.login("pashafv4-t4vs@force.com","Qwertsha");
-//        loginPage.isErrorAppeared();
-//        assertTrue(loginPage.isErrorAppeared(),"Ошибка не появилась");
-//
-//    }
-
     @Test
     public void loginWithValidData() {
         boolean isHomePageOpened = loginPage
