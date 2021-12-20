@@ -19,6 +19,9 @@ public abstract class BaseTest {
     AccountListPage accountListPage;
     AccountModalPage accountModalPage;
     AccountDetailsPage accountDetailsPage;
+    ContactListPage contactListPage;
+    ContactModalPage contactModalPage;
+    ContactDetailsPage contactDetailsPage;
 
     @BeforeMethod
     public void setUp() {
@@ -26,12 +29,15 @@ public abstract class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
         accountListPage = new AccountListPage(driver);
         accountModalPage = new AccountModalPage(driver);
         accountDetailsPage = new AccountDetailsPage(driver);
+        contactListPage = new ContactListPage(driver);
+        contactModalPage = new ContactModalPage(driver);
+        contactDetailsPage = new ContactDetailsPage(driver);
 
     }
 
