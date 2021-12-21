@@ -9,7 +9,7 @@ import pages.AccountDetailsPage;
 public class AccountTest extends BaseTest {
 
 
-    @Test
+    @Test(description = "Creating new account")
     public void accountShouldBeCreated() {
 
         loginPage
@@ -30,14 +30,11 @@ public class AccountTest extends BaseTest {
         Assert.assertTrue(isDetailsPageOpen, "Не открылась страница деталей");
 
         Assert.assertEquals(accountDetailsPage.getFieldValueByName("Account Name"), account.getAccountName(), "");
-//        Assert.assertEquals(accountDetailsPage.getFieldValueByName("Website"), account.getWebSite(), ""); //TODO
-//        Assert.assertEquals(accountDetailsPage.getFieldValueByName("Type"), account.getType(), "");
-//        Assert.assertEquals(accountDetailsPage.getFieldValueByName("Phone"), account.getPhone(), "");
-//        Assert.assertEquals(accountDetailsPage.getFieldValueByName("Employees"), account.getEmployees(), "");
-//        Assert.assertEquals(accountDetailsPage.getFieldValueByName("Industry"), account.getIndustry(), ".");
-//        Assert.assertEquals(accountDetailsPage.getFieldValueByName("Description"), account.getDescription(), "");
-//        Assert.assertEquals(accountDetailsPage.getFieldValueByName("Billing Address"), account.getBillingStreet(), "");
-//        Assert.assertEquals(accountDetailsPage.getFieldValueByName("Shipping Address"), account.getShippingStreet(), "");
+        Assert.assertEquals(accountDetailsPage.getFieldValueByName("Website"), account.getWebSite(), "");
+        Assert.assertEquals(accountDetailsPage.getFieldValueByName("Type"), account.getType(), "");
+        Assert.assertEquals(accountDetailsPage.getFieldValueByName("Phone"), account.getPhone(), "");
+        Assert.assertEquals(accountDetailsPage.getFieldValueByName("Industry"), account.getIndustry(), ".");
+        Assert.assertEquals(accountDetailsPage.getFieldValueByName("Description"), account.getDescription(), "");
 
         System.out.println("!");
 
