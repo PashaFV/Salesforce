@@ -1,5 +1,6 @@
 package tests;
 
+import lombok.extern.log4j.Log4j2;
 import models.Account;
 import models.AccountFactory;
 import org.openqa.selenium.By;
@@ -7,12 +8,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AccountDetailsPage;
 
+@Log4j2
 public class AccountTest extends BaseTest {
 
 
     @Test(description = "Creating new account")
     public void accountShouldBeCreated() {
-
+        log.info("Creating new account");
         loginPage
                 .open()
                 .login("pashafvtms4-sxac@force.com", "QwertyTMS4Pasha");

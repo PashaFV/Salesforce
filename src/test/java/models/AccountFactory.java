@@ -9,7 +9,7 @@ public class AccountFactory {
     static Faker faker = new Faker();
 
     public static Account get() {
-        log.debug("Создается обьект Account");
+        log.debug("Create object - Account");
         return Account.builder()
                 .accountName(faker.artist().name())
                 .webSite(faker.harryPotter().location())

@@ -1,10 +1,12 @@
 package pages;
 
 import elements.*;
+import lombok.extern.log4j.Log4j2;
 import models.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class ContactModalPage extends BasePage {
     private static final By MODAL_TITLE = By.xpath("//h2[text()='New Contact']");
 
@@ -14,6 +16,7 @@ public class ContactModalPage extends BasePage {
 
     @Override
     public boolean isPageOpen() {
+        log.info("Check if the ContactModalPage has opened");
         return isExist(MODAL_TITLE);
     }
 
@@ -23,6 +26,7 @@ public class ContactModalPage extends BasePage {
     }
 
     public ContactDetailsPage create(Contact contact) {
+        log.info("Creating contact");
         new Dropdown(driver, "Salutation").selectOptionsContact(contact.getSalutation());
         new Input(driver, "First Name").writeContact(contact.getFirstName());
         new Input(driver, "Last Name").writeContact(contact.getLastName());
@@ -42,11 +46,11 @@ public class ContactModalPage extends BasePage {
         new Input(driver, "Birthdate").writeContact(contact.getBirthdate());
         new Textarea(driver, "Description").writeContact(contact.getDescription());
 
-
         return clickSave();
     }
 
     private ContactDetailsPage clickSave() {
+        log.info("Click button SAVE on the ContactModalPage");
         driver.findElement(SAVE_BUTTON_CONTACT).click();
         return new ContactDetailsPage(driver);
 
