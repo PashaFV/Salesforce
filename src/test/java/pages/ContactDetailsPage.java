@@ -1,8 +1,10 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class ContactDetailsPage extends BasePage {
 
     public static final By DETAILS_LINK = By.xpath("//a[@id='detailTab__item']");
@@ -21,6 +23,7 @@ public class ContactDetailsPage extends BasePage {
 
     @Override
     public boolean isPageOpen() {
+        log.info("Check if the Details page has opened");
         return isExist(DETAILS_LINK);
     }
 

@@ -1,28 +1,31 @@
 package tests;
 
+import lombok.extern.log4j.Log4j2;
 import models.Account;
+import models.AccountFactory;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AccountDetailsPage;
 
+@Log4j2
 public class AccountTest extends BaseTest {
 
 
     @Test(description = "Creating new account")
     public void accountShouldBeCreated() {
-
+        log.info("Creating new account");
         loginPage
                 .open()
-                .login("pashafv4-t4vs@force.com", "QwertyTMS4Pasha");
+                .login("pashafvtms4-sxac@force.com", "QwertyTMS4Pasha");
 
         boolean isAccountModalOpen = accountListPage
                 .open()
                 .clickNew()
                 .isPageOpen();
-        Assert.assertTrue(isAccountModalOpen, "Не открылся");
+        Assert.assertTrue(isAccountModalOpen, "Pop up Не открылся");
 
-        Account account = new Account("TestAccountName", "www.onliner.by", "Investor", "375293711344", "Employee", "Chemicals", "Good employee", "Street test 34", "Street test 33a");
+        Account account = AccountFactory.get();
 
         boolean isDetailsPageOpen = accountModalPage
                 .create(account)
